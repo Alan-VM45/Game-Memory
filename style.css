@@ -58,6 +58,9 @@ a{
 }
 @media only screen and (max-width: 600px) {
     /* Estilos para pantallas pequeñas (menos de 600px de ancho) */
+    html{
+        font-size: 12px;
+    }
     button{
         padding: 10px;
         font-size: 0.8rem;
