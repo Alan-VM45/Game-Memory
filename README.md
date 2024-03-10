@@ -1,2 +1,2 @@
-# Game-Memory
+# Memory-Game
 Juego de Memoria
