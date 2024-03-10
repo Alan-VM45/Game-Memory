@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    font-family: sans-serif;
+    color: white;
+    align-items: center;
+}
+
+h1{
+    font-size: 50px;
+    width: 730px;
+    margin: 110px auto 100px;
+    display: flex;
+    text-align: center;
+}
+
+div{
+    width: 730px;
+    margin: 100px auto 50px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+a{
+    margin: 20px;
+    padding: 40px;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+}
