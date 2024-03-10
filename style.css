@@ -65,10 +65,12 @@ a{
 
     td {
         width: 50%;
+        display: flex;
     }
 
     .estadisticas {
         font-size: 0.9em;
+        display: flex;
     }
 }
 
