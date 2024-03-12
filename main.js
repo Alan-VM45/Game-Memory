@@ -13,8 +13,8 @@ let tiempoRegresivoId = null;
 let winAudio = new Audio('./sound/win.wav');
 let loseAudio = new Audio('./sound/Lose.wav');
 let clickAudio = new Audio('./sound/click.wav');
-let rightAudio = new Audio('./sound.Right.wav');
-let wrongAudio = new Audio('./sound.wrong.wav');
+let rightAudio = new Audio('./sound/Right.wav');
+let wrongAudio = new Audio('./sound/wrong.wav');
 
 let mostrarMovimientos = document.getElementById('movimientos');
 let mostrarAciertos = document.getElementById('aciertos');
@@ -75,6 +75,7 @@ function destapar(id){
         movimientos++;
         mostrarMovimientos.innerHTML = `Movimientos: ${movimientos}`;
         if(primerResultado == segundoResultado){
+            
 
             tarjetasDestapadas = 0;
 
@@ -88,7 +89,7 @@ function destapar(id){
                 mostrarAciertos.innerHTML = `Aciertos: ${aciertos} 😱`;
                 mostrarTiempo.innerHTML = `Fantástico! Sólo demoraste ${timerInicial - timer} segundos`
                 mostrarMovimientos.innerHTML = `Movimientos: ${movimientos} 😎`;
-            }
+            } 
 
         }else{
             wrongAudio.play();
@@ -99,6 +100,7 @@ function destapar(id){
                 tarjeta2.disabled = false;
                 tarjetasDestapadas = 0;
             },800)
+            
         }
     }
 
