@@ -10,6 +10,12 @@ let timer = 40;
 let timerInicial = 40;
 let tiempoRegresivoId = null;
 
+let winAudio = new Audio('./sound/win.wav');
+let loseAudio = new Audio('./sound/Lose.wav');
+let clickAudio = new Audio('./sound/click.wav');
+let rightAudio = new Audio('./sound.Right.wav');
+let wrongAudio = new Audio('./sound.wrong.wav');
+
 let mostrarMovimientos = document.getElementById('movimientos');
 let mostrarAciertos = document.getElementById('aciertos');
 let mostrarTiempo = document.getElementById('t-restante');
@@ -26,6 +32,7 @@ function contarTiempo(){
         if (timer == 0){
             clearInterval(tiempoRegresivoId);
             bloclearTarjetas();
+            loseAudio.play();
         }
     },1000)
 }
@@ -33,7 +40,7 @@ function contarTiempo(){
 function bloclearTarjetas(){
     for(let i= 0;i <=15; i++ ){
         let tarjetaBloqueada = document.getElementById(i);
-        tarjetaBloqueada.innerHTML = numero[i];
+        tarjetaBloqueada.innerHTML = `<img src="./img/${numero[i]}.png" alt="">`;
         tarjetaBloqueada.disabled = true;
     }
 }
@@ -52,14 +59,16 @@ function destapar(id){
     if(tarjetasDestapadas == 1){
         tarjeta1 = document.getElementById(id);
         primerResultado = numero[id];
-        tarjeta1.innerHTML= primerResultado;
+        tarjeta1.innerHTML= `<img src="./img/${primerResultado}.png" alt="">`;
+        clickAudio.play();
 
         tarjeta1.disabled = true;
 
     }else if(tarjetasDestapadas == 2){
         tarjeta2 = document.getElementById(id);
         segundoResultado = numero[id];
-        tarjeta2.innerHTML = segundoResultado;
+        tarjeta2.innerHTML = `<img src="./img/${segundoResultado}.png" alt="">`;
+        
 
         tarjeta2.disabled = true;
 
@@ -71,8 +80,10 @@ function destapar(id){
 
             aciertos++;
             mostrarAciertos.innerHTML = `Aciertos: ${aciertos}`;
+            rightAudio.play();
 
             if(aciertos == 8){
+                winAudio.play();
                 clearInterval(tiempoRegresivoId);
                 mostrarAciertos.innerHTML = `Aciertos: ${aciertos} 😱`;
                 mostrarTiempo.innerHTML = `Fantástico! Sólo demoraste ${timerInicial - timer} segundos`
@@ -80,6 +91,7 @@ function destapar(id){
             }
 
         }else{
+            wrongAudio.play();
             setTimeout(()=>{
                 tarjeta1.innerHTML = '  ';
                 tarjeta2.innerHTML = '  ';
